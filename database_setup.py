@@ -63,5 +63,5 @@ class Course(Base):
             'provider_id': self.provider_id
         }
 
-engine = create_engine('sqlite:///catalog.db')
+engine = create_engine('postgresql://catalog:password@localhost/catalog')
 Base.metadata.create_all(engine)
