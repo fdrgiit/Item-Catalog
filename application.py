@@ -29,7 +29,7 @@ Base.metadata.bind = engine
 DBSession = scoped_session(sessionmaker(bind=engine))
 db_session = DBSession()
 
-repo_uri = 'E:/PD/eclipse-SDK-4.2.2-win32-x86_64/udacity-full-stack-master/p3/vagrant'
+repo_uri = 'https://github.com/fdrgiit/Item-Catalog'
 base_uri = '/catalog/'
 api_uri = base_uri + 'api/'
 
