@@ -3,6 +3,8 @@ from flask import Flask, flash, g, jsonify, redirect, render_template,\
                   request, session, url_for
 from flask.ext.github import GitHub
 
+from flask.ext.sqlalchemy import SQLAlchemy
+
 app = Flask(__name__)
 app.secret_key = "developmentkeyforthewin"
 
@@ -132,7 +134,8 @@ def source():
     return redirect(repo_uri)
 
 @app.route(base_uri+'seed')
-def seed_database(fixture_filename='fixtures.json'):
+
+def seed_database(fixture_filename='/var/www/FlaskApp/FlaskApp/fixtures.json'):
     """ seed route, used to populate an empty database,
     this should only have to run the first time. """
     providers, _ = base_query()
@@ -309,5 +312,5 @@ def delete_course(course_id):
                            logged_in=authenticated)
 
 if __name__ == '__main__':
-    app.debug = True
+    app.debug = True;
     app.run(host='0.0.0.0', port=5000)
